@@ -28,6 +28,16 @@ function replaceLogo() {
         logo.parentElement.appendChild(imgElm);
         logo.parentElement.removeChild(logo);
     }
+
+    var favicon = document.querySelector('link[rel="shortcut icon"]');
+    if (favicon) {
+        favicon.setAttribute('href', 'https://twitter.com/favicon.ico');
+    }
+    if (document.title == 'X') {
+        document.title = 'Twitter';
+    } else {
+        document.title = document.title.replace('/ X', '/ Twitter')
+    }
 }
 
 function deleteAllAds() {
