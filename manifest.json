@@ -3,7 +3,9 @@
     "name": "Twitter Ad-Block",
     "version": "1.0",
     "description": "Cleaning your Twitter",
-    "icons": {},
+    "icons": {
+        "32": "icons/favicon_32.ico"
+    },
     "content_scripts": [
         {
             "matches": [
@@ -11,7 +13,11 @@
             ],
             "js": [
                 "ad-block.js"
-            ]
+            ],
+            "run_at": "document_idle",
+            "web_accessible_resources": [
+                "resources/twitter-icon.png"
+              ]
         }
     ]
 }

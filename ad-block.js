@@ -1,3 +1,5 @@
+console.log("Initializing....");
+
 function findTweetCell(adCell) {
     if (adCell) {
         if (adCell.tagName.toLowerCase() == 'div' && adCell.hasAttribute('data-testid')) {
@@ -7,6 +9,25 @@ function findTweetCell(adCell) {
         }
     }
     return null;
+}
+
+function replaceLogo() {
+    var logos = document.querySelectorAll('h1[role="heading"] svg[viewBox="0 0 24 24"]');
+    if (logos.length > 0) {
+        let logo = logos[0];
+        var imgElm = document.createElement("img");
+        imgElm.setAttribute("src", browser.runtime.getURL("resources/twitter-icon.png"));
+        var style = window.getComputedStyle(logo, null);
+        let width = style.getPropertyValue("width");
+        let height = style.getPropertyValue("height");
+        if (width > height) {
+            imgElm.style.width = imgElm.style.height = width;
+        } else {
+            imgElm.style.width = imgElm.style.height = height;
+        }
+        logo.parentElement.appendChild(imgElm);
+        logo.parentElement.removeChild(logo);
+    }
 }
 
 function deleteAllAds() {
@@ -25,6 +46,5 @@ function deleteAllAds() {
 
 deleteAllAds();
 
-addEventListener("scroll", (event) => {
-    deleteAllAds();
-});
+setInterval(replaceLogo, 1);
+addEventListener("scroll", deleteAllAds);
