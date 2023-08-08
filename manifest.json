@@ -1,0 +1,17 @@
+{
+    "manifest_version": 2,
+    "name": "Twitter Ad-Block",
+    "version": "1.0",
+    "description": "Cleaning your Twitter",
+    "icons": {},
+    "content_scripts": [
+        {
+            "matches": [
+                "*://*.twitter.com/*"
+            ],
+            "js": [
+                "ad-block.js"
+            ]
+        }
+    ]
+}
