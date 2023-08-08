@@ -1,8 +1,8 @@
 {
     "manifest_version": 2,
-    "name": "Twitter Ad-Block",
-    "version": "1.0",
-    "description": "Cleaning your Twitter",
+    "name": "Social Media Ad-Block",
+    "version": "1.1",
+    "description": "This add-on will block any advertisiment in your social network. Implemented: Twitter.",
     "icons": {
         "32": "icons/favicon_32.ico"
     },
