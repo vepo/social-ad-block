@@ -12,11 +12,21 @@ function findTweetCell(adCell) {
 }
 
 function replaceLogo() {
-    var logos = document.querySelectorAll('h1[role="heading"] svg[viewBox="0 0 24 24"]');
+    // rgb(255, 255, 255)
+    // rgb(21, 32, 43)
+    // rgb(0, 0, 0)
+    var bodyStyle = window.getComputedStyle(document.body, null);
+    var logos = document.querySelectorAll('h1[role="heading"] svg[viewBox="0 0 24 24"], h1[role="heading"] img.my-logo');
     if (logos.length > 0) {
         let logo = logos[0];
         var imgElm = document.createElement("img");
-        imgElm.setAttribute("src", browser.runtime.getURL("resources/twitter-icon.png"));
+        imgElm.classList.add('my-logo');
+        if (bodyStyle.background.toLocaleLowerCase().indexOf('255') >= 0 ||
+            bodyStyle.background.toLocaleLowerCase().indexOf('ff') >= 0) {
+            imgElm.setAttribute("src", browser.runtime.getURL("resources/twitter-dark-icon.png"));
+        } else {
+            imgElm.setAttribute("src", browser.runtime.getURL("resources/twitter-white-icon.png"));
+        }
         var style = window.getComputedStyle(logo, null);
         let width = style.getPropertyValue("width");
         let height = style.getPropertyValue("height");
