@@ -50,8 +50,8 @@ function replaceLogo() {
     }
 }
 
-function deleteAllAds() {
-    var xpath = "//span[text()='Ad']";
+function deleteAllAdsWithText(adText) {
+    var xpath = `//span[text()='${adText}']`;
     var query = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
     for (let i = 0, length = query.snapshotLength; i < length; ++i) {
         // DEBUG console.log(query.snapshotLength, i, query.snapshotItem(i));
@@ -61,6 +61,11 @@ function deleteAllAds() {
             tweetCell.parentElement.removeChild(tweetCell);
         }
     }
+}
+
+function deleteAllAds() {
+    deleteAllAdsWithText('Ad');
+    deleteAllAdsWithText('Promovido');
 }
 
 

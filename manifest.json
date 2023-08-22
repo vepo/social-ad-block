@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "Social Media Ad-Block",
-    "version": "1.3",
+    "version": "1.3.1",
     "description": "This add-on will block any advertisiment in your social network. Implemented: Twitter.",
     "icons": {
         "32": "icons/favicon_32.ico"
@@ -18,7 +18,15 @@
             "web_accessible_resources": [
                 "resources/twitter-white-icon.png",
                 "resources/twitter-dark-icon.png"
-              ]
+            ],
+            "browser_action": {
+                "default_icon": {
+                    "32": "twitter-dark-toolbar-icon-32.png",
+                    "64": "twitter-dark-toolbar-icon-64.png",
+                    "128": "twitter-dark-toolbar-icon-128.png",
+                    "512": "twitter-dark-toolbar-icon-512.png"
+                }
+            }
         }
     ]
 }
